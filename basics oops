@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std ;
+class Student{
+    string name ;
+    public:
+    int age ;
+    int gender ;
+    void setName(string s){
+        name = s ;
+    }
+    Student(string s,int a ,int g) { // constructor
+        name = s ;
+        age = a ;
+        gender = g;
+    }
+    Student(Student &a ) {  // copy constructor 
+        name = a. name ;
+        age = a.age ;
+        gender = a.gender ;
+        cout<< "user defined copy constructor is called " <<endl ;
+    }
+    void getName(){ // getter
+        cout<< name ;
+    }
+    void printInfo( ) {  // setter
+        cout << name << endl ; 
+        cout<< age << endl ;
+        cout<< gender <<endl ;
+    }
+    bool operator == (Student &a ) {  // operator over;oading 
+        if(name ==a. name and age ==a.age and gender ==a.gender ) {
+            return true ; 
+        }
+    }
+};
+int main() {
+    Student a("Nipun" , 22 ,1) ;
+    a.setName("Nipun") ;
+    Student c(a) ;
+    c.printInfo() ;
+    if(c==a ) {
+        cout << "same" ;
+    }
+    return 0;
+}
